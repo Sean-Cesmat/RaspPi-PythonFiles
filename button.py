@@ -55,6 +55,17 @@ def rainbow(wait):
         pixels.show()
         time.sleep(wait)
 
+colors = [(0, 0, 0), (248, 12, 18), (238, 17, 0), (255, 51, 17), (255, 68, 34), (255, 102, 68), (255, 153, 51), (254, 174, 45), (204, 187, 51), (208, 195, 16), (170, 204, 34), (105, 208, 37), (34, 204, 170), (18, 189, 185), (17, 170, 187), (68, 68, 221), (51, 17, 187), (59, 12, 189), (68, 34, 153), rainbow(0.0001)]
+def whatColor():
+    i = 0
+    while i < len(colors):
+        if i == len(colors):
+            colors[i]
+        elif buttonLoop == i:
+            pixels.fill(colors[i])
+            pixels.show()
+        i += 1
+
 
 def whatMode():
     if buttonLoop == 0:
@@ -128,7 +139,7 @@ while True:
         print('FButton Pressed')
         buttonLoop = buttonLoop + 1
         time.sleep(0.5)
-        whatMode()
+        whatColor()
         print(buttonLoop)
     if input_state2 == False:
         print('BButton Pressed')
@@ -136,15 +147,15 @@ while True:
         if buttonLoop < 0:
             buttonLoop = modes
         time.sleep(0.5)
-        whatMode()
+        whatColor()
         print(buttonLoop)
     if input_state12 == False:
         print('Off Button Pressed')
         time.sleep(0.5)
         buttonLoop = 0
-        whatMode()
+        whatColor()
         print(buttonLoop)
     if buttonLoop == (modes + 1):
         buttonLoop = 0
-        whatMode()
+        whatColor()
         print(buttonLoop)
